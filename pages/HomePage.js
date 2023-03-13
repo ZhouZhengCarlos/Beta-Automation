@@ -1,4 +1,3 @@
-// playwright-dev-page.js
 import { expect } from '@playwright/test';
 
 export class HomePage {
@@ -9,8 +8,8 @@ export class HomePage {
     this.submitButton = page.locator('input[data-ga-event-action="Search Action"]');
     this.SRPHeader = page.locator('h1.title__type');
   }
-  async NavigateToSRP() {
-    await this.typeaheadInput.fill("Austin, TX Area");
+  async NavigateToSRP(Location) {
+    await this.typeaheadInput.fill(Location);
     await this.submitButton.click();
     await expect(this.SRPHeader).toBeVisible();
   }

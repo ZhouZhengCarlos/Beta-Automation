@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { HomePage } from "../../pages/home-page.js";
+import { HomePage } from "../../pages/HomePage.js";
 import config from "../../variables/config";
 let homePage;
 test.beforeEach(async ({ page, context, baseURL }) => {
@@ -7,10 +7,10 @@ test.beforeEach(async ({ page, context, baseURL }) => {
   await page.setExtraHTTPHeaders(config.header);
   await context.addCookies([config.betaCookie]);
   await page.goto(`${baseURL}`);
-  await homePage.NavigateToSRP();
+  await homePage.NavigateToSRP("Austin, TX Area");
 });
 
-test("Desktop | Elements Visibility | Communities - Homes Tab | View-Cards", async ({
+test("Verify home cards", async ({
   page,
   baseURL,
 }) => {
